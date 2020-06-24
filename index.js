@@ -70,7 +70,18 @@ function total() {
 }
 
 function removeFromCart(item) {
-  // write your code here
+  // loop through the cart array
+  for (let p = 0; p < cart.length; p++) {
+    // if the value for any of itemName keys matches the parameter...
+    if (cart[p].itemName === item) {
+      // remove that object and return the updated cart without the object
+      return cart.splice(cart[p]);
+    }
+  }
+  // if the cart doesn't contain a matching item, return this instead
+  else {
+    return "That item is not in your cart";
+  }
 }
 
 function placeOrder(cardNumber) {
