@@ -10,15 +10,63 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+  let price = ((Math.floor(Math.random() * 100)) + 1);
+  let toAdd = {itemName:item, itemPrice:price};
+  cart.push(toAdd);
+  return `${item} has been added to your cart.`;
 }
 
 function viewCart() {
-  // write your code here
-}
+  // define a string to add on to and eventually return
+  let tracker = "In your cart, you have ";
+  // if the cart array has no objects...
+  if (cart.length === 0) {
+    // return this string below
+    return "Your shopping cart is empty.";
+  }
+    // else if the cart array has 1 object...
+    else if (cart.length === 1) {
+      // add this string to tracker
+      tracker += (`${cart[0].itemName} at $${cart[0].itemPrice}.`);
+    }
+    // else if the cart array has 2 objects...
+    else if (cart.length === 2) {
+      // loop through the cart array...
+      for (let n = 0; n < cart.length; n++) {
+        // and if the object is the last object in the array...
+        if (n === cart.length - 1) {
+          // add this string to tracker
+          tracker += (`${cart[n].itemName} at $${cart[n].itemPrice}.`);
+          // otherwise, add this string to tracker
+        } else {
+            tracker += (`${cart[n].itemName} at $${cart[n].itemPrice}, and `);
+        }
+      }
+    }
+    // else if the cart array has 3 or more objects...
+    else if (cart.length > 2) {
+      // loop through the cart array...
+      for (let n = 0; n < cart.length; n++) {
+        // and if the object is the last object in the array
+        if (n === cart.length - 1) {
+          // add this string to tracker
+          tracker += (`and ${cart[n].itemName} at $${cart[n].itemPrice}.`);
+          // otherwise, add this string
+        } else {
+            tracker += (`${cart[n].itemName} at $${cart[n].itemPrice}, `);
+        }
+      }
+    }
+    // finally, return tracker
+    return tracker;
+  }
 
 function total() {
-  // write your code here
+  let totalPrice = 0;
+  for (let k = 0; k < cart.length; k++) {
+    totalPrice += cart[k].itemPrice;
+  }
+  return totalPrice;
 }
 
 function removeFromCart(item) {
