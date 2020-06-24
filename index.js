@@ -79,9 +79,7 @@ function removeFromCart(item) {
     }
   }
   // if the cart doesn't contain a matching item, return this instead
-  else {
     return "That item is not in your cart";
-  }
 }
 
 function placeOrder(cardNumber) {
