@@ -75,7 +75,7 @@ function removeFromCart(item) {
     // if the value for any of itemName keys matches the parameter...
     if (cart[p].itemName === item) {
       // remove that object and return the updated cart without the object
-      return cart.splice(cart[p]);
+      return cart.splice(p, 1);
     }
   }
   // if the cart doesn't contain a matching item, return this instead
