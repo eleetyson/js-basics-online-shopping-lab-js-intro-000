@@ -91,7 +91,7 @@ function placeOrder(cardNumber) {
   // define a variable to track total cost
   let totalCost = 0;
   else {
-    // loop through the cart array and for each object 
+    // loop through the cart array and for each object
     for (let w = 0; w < cart.length; w++) {
       // add the value of its itemPrice key to totalCost
       totalCost += cart[w].itemPrice;
