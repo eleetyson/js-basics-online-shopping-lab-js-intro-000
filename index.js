@@ -87,17 +87,15 @@ function placeOrder(cardNumber) {
   if (cardNumber === undefined) {
     return "Sorry, we don't have a credit card on file for you.";
   }
-  // else if a card number is received...
+  // otherwise... (so if a card number is received)
   // define a variable to track total cost
   let totalCost = 0;
-  else {
-    // loop through the cart array and for each object
-    for (let w = 0; w < cart.length; w++) {
-      // add the value of its itemPrice key to totalCost
-      totalCost += cart[w].itemPrice;
-      // and remove the object
-      cart.splice(w, 1);
-    }
+  // loop through the cart array and for each object
+  for (let w = 0; w < cart.length; w++) {
+    // add the value of its itemPrice key to totalCost
+    totalCost += cart[w].itemPrice;
+    // and remove the object
+    cart.splice(w, 1);
   }
   // after the loop is complete, return the statement below
   return `Your total cost is $${totalCost}, which will be charged to the card ${cardNumber}.`;
